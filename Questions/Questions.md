@@ -78,7 +78,7 @@
 8. Merge two sorted lists into a single sorted list without using the `.sort()` method.
 9. Find the length of the longest substring without repeating characters.
 10. Generate all possible permutations of a given list of numbers.
-
+11. Reverse a list in place with a two-pointer approach (no `reverse()`, slicing or `reversed`). Then extend it to reverse only the segment between indices `i` and `j`
 **Dictionaries & Sets**
 11. Merge multiple dictionaries, summing the values for keys that appear in more than one dictionary.
 12. Write a function that takes a text block and returns a dictionary of word frequencies, ignoring punctuation.

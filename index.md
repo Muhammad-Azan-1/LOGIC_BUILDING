@@ -19,7 +19,7 @@ Try them without running the code first, then verify.
        if i == 1:
            lst.remove(i)
    ```
-2. **Josephus problem:** 7 people stand in a circle numbered 1 to 7. Starting from person 1, every 3rd person is eliminated. Using only `pop(index)` and modulo arithmetic, return the elimination order.
+2. **Josephus problem:** 7 people stand in a circle numbered 1 to 7. Starting from person 1, every 3rd person is eliminated. Using only `pop(index)` and modulo arithmetic, return the elimination order. # skiped
 
 ## 3. `count` / `index`
 1. For `[1, 2, 3, "Azan", 3, 2, 1, True, "Azan", True]`, predict `count(1)`, `count(True)` and `index(True)`. Why are the answers surprising?
@@ -32,18 +32,22 @@ Try them without running the code first, then verify.
    b = a.copy()
    a[0][0] = 5
    ```
-2. Write `my_deepcopy(lst)` for arbitrarily nested lists, without the `copy` module, and prove it works with a test.
+2. Write `my_deepcopy(lst)` for arbitrarily nested lists, without the `copy` module, and prove it works with a test. # skkiped
+
+
 
 ## 5. `reverse`
 1. Predict the output:
    ```python
    a = [1, 2, 3]
    b = a.reverse()
-   print(b)
+   print(b) [3,2,1]
    d = reversed(a)
    print(list(d), list(d))
    ```
-2. Reverse a list in place with a two-pointer approach (no `reverse()`, slicing or `reversed`). Then extend it to reverse only the segment between indices `i` and `j`.
+
+2. Reverse a list in place with a two-pointer approach (no `reverse()`, slicing or `reversed`). Then extend it to reverse only the segment between indices `i` and `j`. # skipped
+
 
 ## 6. `sort()`
 1. Sort `["Azan", "zayyan", "muhammad", "raza", "huzaif", "anus"]` by length descending, with ties broken alphabetically ascending, in a single `sort()` call.

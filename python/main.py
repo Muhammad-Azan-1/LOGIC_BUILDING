@@ -65,4 +65,38 @@ def transpose_2D_matrix(matrix):
     print(tranpose_matrix)
 
 
-transpose_2D_matrix(matrix_2D)
+# transpose_2D_matrix(matrix_2D)
+
+
+#* 3 Rotate a list to the right by `k` steps.
+
+# Problem : Rotate the list to right by k steps [1,2,3,4,5] if k = 2 then [4,5,1,2,3]
+# pattren : Repeat a one-step rotation, with k reduced using modulo
+# Trick :  k % len(list) removes useless full rotations (k = 7 on 5 items is the same as 2). Each step: pop the last item, insert it at the front.
+
+# Time : : O(n * k), because insert at index 0 shifts every item, and you repeat it k times
+#* Time O(n * k) -> Take n = 10 and k = 2:
+#* One rotation touches all 10 items, because insert(0, ...) pushes every other item one step to the right.
+#* You do that 2 times, so about 10 x 2 = 20 steps.
+
+# Space: O(1), the list is changed in place and only a few variables are used
+#* space means the extra memory your code creates does not grow with the input. 
+#* Here you create only steps_to_move, i, and item (one value at a time). You never build a new list,
+#* because the original list is changed in place. A list of 5 items or 5 million items uses the same three variables.
+
+nums_list = [1,2,3,4,5]
+def rotate_list(given_list , k):
+    if len(given_list) == 0:
+        return []
+    
+    steps_to_move = k % len(given_list)
+    i = 0
+    while i < steps_to_move:
+        item = given_list.pop()
+        given_list.insert(0,item)
+        i+=1
+
+    return given_list
+
+# print(rotate_list(nums_list , 2))
+

@@ -37,6 +37,7 @@ function longest_word(str){
 // console.log(longest_word("My name is Muhammmad Azan"))
 
 
+
 //* 2. Given an array of integers, move all zeros to the end while maintaining the relative order of the non-zero elements.
 
 // Problem: Move all zeros to end & maintine non zero elements order (JS #2)
@@ -77,3 +78,34 @@ function move_zeros(array){
 // console.log(move_zeros(arr))
 
 
+//* 3. Write a function to deeply flatten an array of arbitrarily nested arrays (e.g., `[1, [2, [3, 4]]]`).
+
+// problem : flatte a nested array
+// pattern : recursion
+// Base case (stop): a value that is NOT an array is added straight to the result.
+// Recursive case: a value that IS an array -> call the same function on it,   get back a flat list, and merge it into the result.
+// trick : the function trusts that every recursive call returns an already-flat list, so each level only has to merge flat lists together.
+// Time: O(n * d) in the worst case, where n = total number of items and d = how deep the nesting goes.
+//       The spread [...a, ...b] builds a new array and copies everything collected so far,
+//       so with deep nesting the same items get copied again and again.
+//       In the worst case (very deep nesting) this can grow toward O(n^2).
+// space : O(n) (for the result, plus the recursion depth) as input increase the space (memory) also increase to store new flatted array
+
+nested_array = [1,2,[3,4,[5,6]]]
+function flatten_array(array){
+    let flattenArray = []
+
+    for (let val of array){
+        
+        if(Array.isArray(val)){
+            let result = flatten_array(val)
+            flattenArray = [...flattenArray , ... result]
+
+        }else{
+            flattenArray.push(val)
+        }
+    }
+
+    return flattenArray
+}
+// console.log(flatten_array(nested_array))
