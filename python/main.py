@@ -100,3 +100,25 @@ def rotate_list(given_list , k):
 
 # print(rotate_list(nums_list , 2))
 
+#* 4. Find all duplicate elements in a list without using built-in sets.
+
+# problem : find all duplicates items in a list
+# Pattren : frequency map (hash map counting)
+# Trick : count every item in a dict in one pass, then keep the keys whose count is above 1
+# Time : O(n) time, since there’s one pass to count and one to filter
+# Space : O(n) space for the dict
+
+nums_list = [1, 2, 3, 2, 4, 5, 1] 
+
+def find_duplicates(nums):
+    duplicates = {}
+    if len(nums) <= 1:
+        return []
+    for i in nums:
+        duplicates[i] = duplicates.get(i , 0) + 1
+    return [x for (x,y) in duplicates.items() if y > 1]
+   
+# print(find_duplicates(nums_list))
+# print(find_duplicates([]))
+# print(find_duplicates([7]))
+

@@ -109,3 +109,30 @@ function flatten_array(array){
     return flattenArray
 }
 // console.log(flatten_array(nested_array))
+
+
+//* 4 Implement a function that chunks an array into smaller arrays of a specified size.
+
+// problem : chunks an array into smaller pieces based on the size defined
+// pattren : stride loop + slice
+// trick : step the loop by size instead of 1, so each slice(i, i + size) grabs exactly one chunk, and slice shortens the last chunk on its own when items are left over.
+// time O(n) : As size of input increases the step will also increase to create chunks
+// space O(n) : As size of input increase the memory increase bcz of new array creation
+
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function chuck_array(array , size){
+    if(size <= 0){
+        return array
+    }
+   const  newArray = []
+    for (let i = 0; i < array.length; i+=size) {
+        newArray.push(array.slice(i,size+i))       
+    }
+
+    return newArray
+}
+
+// console.log(chuck_array(nums , 2))
+// console.log(chuck_array(nums , 3))
+// console.log(chuck_array(nums , 0))

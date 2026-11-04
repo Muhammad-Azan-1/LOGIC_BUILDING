@@ -51,15 +51,15 @@ Try them without running the code first, then verify.
 
 ## 6. `sort()`
 1. Sort `["Azan", "zayyan", "muhammad", "raza", "huzaif", "anus"]` by length descending, with ties broken alphabetically ascending, in a single `sort()` call.
-2. Sort integers by their number of `1` bits in binary, ties by value descending. Then explain why sorting twice (secondary key first, primary key second) also works. What property guarantees that?
+2. Sort integers by their number of `1` bits in binary, ties by value descending. Then explain why sorting twice (secondary key first, primary key second) also works. What property guarantees that? #skiped
 
-## 7. `sorted()`
+## 7. `sorted()` 
 1. Given `{"a": 3, "b": 1, "c": 3, "d": 2}`, return the keys ordered by value descending, ties by key ascending, using `sorted()`.
-2. Sort the characters of `"mississippi"` by frequency descending, ties alphabetical, and return a string. Use `sorted()` and one other tool of your choice.
+2. Sort the characters of `"mississippi"` by frequency descending, ties alphabetical, and return a string. Use `sorted()` and one other tool of your choice. # skiped
 
 ## 8. List comprehension basics
 1. Generate all Pythagorean triples `(a, b, c)` with `a < b < c <= 50` in one comprehension.
-2. Given `m = [[1,2,3],[4,5,6],[7,8,9]]`, produce the flattened list and the transpose, each in one comprehension.
+2. Given `m = [[1,2,3],[4,5,6],[7,8,9]]`, produce the flattened list and the transpose, each in one comprehension. # skiped
 
 ## 9. Nested / multi-loop comprehensions
 1. Predict the output without running it (it's from your notes):
@@ -68,7 +68,7 @@ Try them without running the code first, then verify.
    li = [[x for x in [li]] for x in range(3)]
    ```
    Then explain what `[i+j for i in 'abc' for j in 'def']` gives versus `[[i+j for i in 'abc'] for j in 'def']`.
-2. Using one comprehension, produce all pairs `(i, j)` with `0 <= i < j < 5` where `i + j` is odd. Then rewrite it as equivalent nested `for` loops.
+2. Using one comprehension, produce all pairs `(i, j)` with `0 <= i < j < 5` where `i + j` is odd. Then rewrite it as equivalent nested `for` loops. #skiped
 
 ## 10. Filter (`if`) vs. ternary (`if/else`)
 1. From `data = [10, -5, None, 8, -2, None, "7"]`, in one comprehension: drop `None`, convert numeric strings to `int`, and clamp negatives to `0`.
