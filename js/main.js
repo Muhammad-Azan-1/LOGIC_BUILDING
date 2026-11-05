@@ -136,3 +136,46 @@ function chuck_array(array , size){
 // console.log(chuck_array(nums , 2))
 // console.log(chuck_array(nums , 3))
 // console.log(chuck_array(nums , 0))
+
+
+//* 5. Find the missing number in an array containing numbers from 1 to N, where one number is missing.
+
+// pattern : math / sum difference
+// trick : the array is one item short of the full set 1 to N, so N = length + 1. Total of 1 to N (by formula or by a loop) 
+// minus the actual sum of the array leaves exactly the missing number
+
+// time O(n) : one pass to sum the array. The loop version adds a second pass for 1 to N, but two passes is still O(n), because constants are dropped
+// space O(1) : only a few numbers are held (n, the totals), and nothing grows with the input size
+
+function find_missing_num(array){
+
+    // with formula
+    // let n = array.length + 1
+    // let missing = n*((n+1)/2) 
+    // let total = 0
+    // for (let val of array){
+    //     total+=val
+    // }
+    // return missing - total 
+
+    //* without formula
+//     let n = array.length + 1
+//     let counter = 0
+//     let currTotal = 0
+//     for (let i = 1; i <= n ; i++){
+//         counter+=i
+//     }   
+    
+//     for (let val of array){
+//         currTotal += val
+//     }
+
+//    return counter - currTotal
+
+}
+
+
+// console.log(find_missing_num([1, 2, 4, 5]))
+// console.log(find_missing_num([3, 1, 2, 5]))
+// console.log(find_missing_num([1, 2, 3, 4, 5, 6, 7, 9, 10]))
+// console.log(find_missing_num([10, 8, 9, 7, 6, 5, 4, 3, 1]))
