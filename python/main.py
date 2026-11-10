@@ -122,3 +122,120 @@ def find_duplicates(nums):
 # print(find_duplicates([]))
 # print(find_duplicates([7]))
 
+
+#* 5. Write a function to find the longest common prefix string amongst an list of strings.
+
+# problem : find the longest prefix amongst the list of string
+# pattren : vertical scanning with zip(*lst)
+# Horizontal : scanning would compare whole words: take word 1 and word 2 and find their common prefix, then compare that result with word 3.
+# Vertical : scanning reads column by column: check the first letters of all words, then the second letters, and so on, stopping at the first
+# column that isn’t all the same.
+# trick : zip groups the letters at the same position across all words of the list, then we check does that group have all elements same?
+#.        if then this will be added to the prefix if not loops break and prefix returned
+
+#* Time O(n*m)
+#* where n is the number of words and m is the shortest word length in the list
+#* (prefix ki length zyada se zyada m hoti hai kyunke zip sab se choti word pe ruk jata hai,
+#*  aur aksar us se kam hoti hai kyunke break pehle mismatch pe loop rok deta hai)
+
+# ["apple", "apple", "apple"].
+
+# Time
+
+# n = 3 words, m = 5 (shortest word ki length)
+# Columns = 5, aur har column mein 3 letters check hote hain (count pura group dekhta hai)
+# Total = 3 × 5 = 15 checks, yahi O(n·m) hai
+
+# Ab ["flower", "flow", "flght"] dekho. Yahan m = 4, to worst case 3 × 4 = 12 checks banta hai. Lekin teesre column (o, o, i) pe break ho jata hai, to asal mein sirf 3 × 3 = 9 checks hue. O(n·m) worst case hai, aur break actual kaam ko kam kar sakta hai.
+
+# Growth ka andaza
+
+# 1000 words, shortest length 10 → 10,000 checks
+# Words double karke 2000 kar do → 20,000 checks, yani kaam bhi double
+# Length double karke 20 kar do → phir double
+
+
+#* space O(n+m)
+#* you hold one column at a time, which is n letters, plus the prefix you build, which is at most m letters.
+
+# ["apple", "apple", "apple"] ke liye:
+
+# Ek waqt mein ek column ka group = 3 letters (n)
+
+# Banta hua prefix = 5 letters tak (m)
+
+# Total = 3 + 5 = 8 items, yahi O(n + m) hai
+
+
+def longest_common_prefix(lst):
+    longest_prefix = ''
+    if len(lst) == 0 :
+        return ""
+    if len(lst) == 1:
+        return lst[0]
+        
+    for x in zip(*lst):
+       print(x.count(x[0]),x[0])
+       if len(x) > x.count(x[0]):
+            break
+       else:
+        longest_prefix+=x[0]
+
+       
+    return(longest_prefix)
+
+# print(longest_common_prefix(["flower", "flow", "flight"]))
+# print(longest_common_prefix(["flower"]))
+# print(longest_common_prefix([]))
+# print(longest_common_prefix(["dog", "racecar", "car"]))
+# print(longest_common_prefix(["interview", "internet", "interval"]))
+# print(longest_common_prefix(["apple", "apple", "apple"] ))
+# print(longest_common_prefix(["alone"]))
+# print(longest_common_prefix(["flower", "flow"]))
+# print(longest_common_prefix(["abxc", "abyc", "abzc"]))
+
+
+
+
+#* 6. Check if an IP address string is a valid IPv4 address without using the `ipaddress` module.
+
+# pattren : loop and if condition
+# trick :  check each condition on which an IPV4 number does not satisfy and return false if that condition is true
+# time O(n)
+# space O(1)
+
+def check_IPV4(ip_address):
+   ip_list = ip_address.split(".")
+   if len(ip_list) <  4 or  len(ip_list) > 4:
+       return False
+
+   if len(ip_list) == 4:
+       for i in ip_list:
+           
+           if not i.isdigit():
+               return False
+
+           num = int(i)
+           if not (0 <= num <= 255):
+                return False
+
+           if i.startswith('0') and i != '0':
+               return False
+
+       return True 
+            
+           
+
+# print(check_IPV4("192.168.1.1"))
+# print(check_IPV4("0.0.0.0"))
+# print(check_IPV4("255.255.255.255"))
+# print(check_IPV4("256.100.50.25"))
+
+# print(check_IPV4("192.168.1"))
+# print(check_IPV4("192.168.1.a"))
+# print(check_IPV4("192.168..1"))
+# (print(check_IPV4("192.168.1")))
+# print(check_IPV4("192.168.01.1"))
+
+
+

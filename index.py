@@ -104,3 +104,20 @@ def resolve_sort(item):
 # print(lst)
 
 #! -- ends here
+
+
+# set_x = {1,2,3,4,5}
+# set_y = {7,8,9}
+
+# # set_x = {1,2,3,4,5}
+# # set_y = {6,7,8,9,10}
+
+
+
+# print(set_x.isdisjoint(set_y))
+
+
+f_s = frozenset([1,2,3,4,5])
+
+
+print(f_s)

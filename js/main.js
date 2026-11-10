@@ -179,3 +179,39 @@ function find_missing_num(array){
 // console.log(find_missing_num([3, 1, 2, 5]))
 // console.log(find_missing_num([1, 2, 3, 4, 5, 6, 7, 9, 10]))
 // console.log(find_missing_num([10, 8, 9, 7, 6, 5, 4, 3, 1]))
+
+
+//* 6 Write a function to find the first non-repeating character in a string.
+
+// pattern : Frequency Map / Hash Counter
+// trick : First loop counts frequencies; second lookup finds the first match.
+
+// Time : O(n) as input size increase (means the larger the string) the steps (time) aslo increase
+// Space : O(n) (or O(u) for unique characters) because the object stores keys proportional to the unique characters in the string.
+// so either space will grow as size of input grows = 0(n)
+// or space will grow only to how much unique characters we stored in dict regardless how large the size of input be so = O(u)
+
+
+function first_non_repeat_char(str){
+    if (str.length == 0) return false
+
+    let track = {}
+    for (let val of str){
+        track[val] = (track[val] || 0) + 1
+    }
+
+    for (let key in track){
+         if (track[key] == 1){
+            return key
+         }
+    }
+
+    return false
+
+
+
+}
+
+
+// console.log(first_non_repeat_char("swiss"))
+// console.log(first_non_repeat_char("loveleetcode"))
