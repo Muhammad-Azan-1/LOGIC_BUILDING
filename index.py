@@ -115,9 +115,3 @@ def resolve_sort(item):
 
 
 # print(set_x.isdisjoint(set_y))
-
-
-f_s = frozenset([1,2,3,4,5])
-
-
-print(f_s)

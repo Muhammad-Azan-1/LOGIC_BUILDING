@@ -215,3 +215,41 @@ function first_non_repeat_char(str){
 
 // console.log(first_non_repeat_char("swiss"))
 // console.log(first_non_repeat_char("loveleetcode"))
+
+
+//* 7. Create a function that takes a string and capitalizes the first letter of every word.
+
+//* pattren : split → filter → map → join chain.
+//* trick : split the string on " " (not “each item”), then filter out empty strings, then map each word to first letter upper and the rest lower
+//* time : O(n)
+//* space : O(n)
+
+function captilize_str(str){
+    // let finalStr = ""
+    // if (str.trim() === '') return ''
+
+    // for (let val of str.split(" ")){
+    //     if (val.trim() == "" ){
+    //         continue
+    //     }
+    //     finalStr += val[0].toUpperCase() + val.slice(1,).toLowerCase() + " "
+
+    // }
+
+
+    // return finalStr.trim()
+
+
+    //* second
+    // str.split(" ") and .split(/\s+/) are same it just use for if there is any escape sequence charater in the stirng i.e "a\tb"
+    return str.trim().split(/\s+/)
+    .filter((items)=> items.trim() != '')
+    .map((items)=> items[0].toUpperCase() + items.slice(1,).toLowerCase())
+    .join(" ")
+
+    
+}
+
+
+// console.log(captilize_str("  tHe qUICK   brown-fox jumps oVER the lazy dog  "))
+// console.log(captilize_str("hello world from javascript"))

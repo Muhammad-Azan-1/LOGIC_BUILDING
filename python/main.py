@@ -239,3 +239,39 @@ def check_IPV4(ip_address):
 
 
 
+
+#* 7. Write a script to format a list of messy phone number strings into a standard `(XXX) XXX-XXXX` format.
+
+import re
+def formate_messy_ph(num_str):
+    if num_str.strip() == '':
+        return False
+    
+    #clean_num_str = "".join(c for c in s if c.isdigit()) alternative
+    clean_num_str = re.sub(r"\D" , "" , num_str)
+    if (len(clean_num_str) == 11 and clean_num_str[0] == '1'):
+        clean_num_str = clean_num_str[1:]
+    elif (len(clean_num_str) != 10):
+        return False
+
+    return f'({clean_num_str[0:3]}) {clean_num_str[3:6]}-{clean_num_str[6:]} '
+
+
+phones = [
+    "123-456-7890",
+    "(123) 456-7890",
+    "123.456.7890",
+    "123 456 7890",
+    "1234567890",
+    "+1 123 456 7890",
+    "1-123-456-7890",
+    "  (123)456-7890  ",
+    "123-45-67890",
+    "123-45-67890",
+    "123-45-678901",
+    "123-45-6789",
+]
+
+for p in phones:
+    pass
+    # print(formate_messy_ph(p))
