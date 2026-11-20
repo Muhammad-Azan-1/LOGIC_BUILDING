@@ -253,3 +253,47 @@ function captilize_str(str){
 
 // console.log(captilize_str("  tHe qUICK   brown-fox jumps oVER the lazy dog  "))
 // console.log(captilize_str("hello world from javascript"))
+
+
+
+//* 8. Find the intersection (common elements) of two arrays without using the built-in `.filter()` method initially.
+// pattern : hash set lookup
+// trick : put one array into a set, then walk the other array and ask the set "do you have this?", which is a constant-time check instead of a scan. Remove an item from the set once it's reported so duplicates don't repeat
+// time O(n + m) : one pass to fill the set, one pass over the other array, and every lookup is constant
+// space O(n) : the set holds the items of the first array, plus the result, at most min(n, m)
+function find_common(arr1 , arr2){
+    let set = new Set()
+    let common = []
+    
+    if ((arr1.length == 0 && arr2.length == 0)){
+        return []
+    }
+
+    for (let val of arr1){
+        set.add(val)
+    }
+
+    for ( let val of arr2){
+       if(set.has(val) ){
+        common.push(val)
+        set.delete(val)
+           }
+    }
+
+    return  common
+
+
+
+
+
+
+}
+
+
+// console.log(find_common([1, 2, 3, 4], [3, 4, 5, 6]))
+// console.log(find_common([5, 1, 9], [9, 5, 7] ))
+// console.log(find_common([], [])) 
+// console.log(find_common([], [1, 2] )) 
+// console.log(find_common([7], [7])) 
+// console.log(find_common([1, 2, 3], [4, 5, 6]))
+// console.log(find_common([1, 2, 2, 3], [2, 2, 4] ))

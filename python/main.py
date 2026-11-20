@@ -275,3 +275,48 @@ phones = [
 for p in phones:
     pass
     # print(formate_messy_ph(p))
+
+
+#* 8. Merge two sorted lists into a single sorted list without using the `.sort()` method.
+# pattern : two pointers (the merge step of merge sort)
+# trick : both lists are already sorted, so the smallest unused item is always at the front of one of them.
+#         Compare the two front items, put the smaller one into the new list, and move only the pointer of the list it came from.
+#         When one list runs out, the rest of the other is already sorted, so add it to the end as it is
+# time O(n + m) : each pointer only moves forward and never goes back, so every item is looked at once. n and m are the lengths of the two lists,
+                 # so this is one pass over all the items (yani jitne zada n or m inputs ka size huga otna zada time lagy ga
+                 
+# space O(n + m) : the new list holds every item from both lists (not counting the input lists, which already exist)
+def merge_sort_list(lst1 , lst2):
+    if (len(lst1) == 0) and (len(lst2) == 0):
+        return []
+    merged_sorted = []
+    x = 0
+    y = 0
+    while (x < len(lst1) and y < len(lst2)):
+        item_1 = lst1[x]
+        item_2 = lst2[y]
+         
+        if item_1 < item_2:
+            merged_sorted.append(item_1)
+            x+=1
+        else:
+            merged_sorted.append(item_2)
+            y+=1
+
+    while x < len(lst1):
+       merged_sorted.append(lst1[x])
+       x+=1
+    while y < len(lst2): 
+        merged_sorted.append(lst2[y])
+        y+=1
+
+    return merged_sorted
+
+# print(merge_sort_list([1, 4, 7], [2, 3, 9]))
+# print(merge_sort_list([1, 2, 3], [4, 5, 6]))
+# print(merge_sort_list([], [] ))
+# print(merge_sort_list([-3, 0, 5], [-5, -1, 8]))
+# print(merge_sort_list([], [1, 2] ))
+# print(merge_sort_list([1, 2, 2, 3], [2, 4]))
+# print(merge_sort_list([1, 3, 5], [1, 3, 5]))
+
